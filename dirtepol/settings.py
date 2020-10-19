@@ -24,7 +24,7 @@ SECRET_KEY = 'au7e3&w2o=cwdj^jpoyi1-o#x@zq9ggk@=b5zlxc=i_5ba^hxb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -114,5 +114,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / "static/"
+
+MEDIA_URL = '/uploads/'
+MEDIA_ROOT = BASE_DIR / "uploads/"
 
 AUTH_USER_MODEL = 'core.User'
