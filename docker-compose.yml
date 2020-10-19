@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  web:
+    restart: always
+    build: ./
+    ports:
+      - "8001:8001"
+    links:
+      - postgres:postgres
+      - redis:redis
+    volumes:
+      - ./:/usr/src/app
+      # - dirtepol_static:/usr/src/app/static
+      # - dirtepol_uploads:/usr/src/app/uploads
+    env_file: .env
+    command: python manage.py runserver 0.0.0.0:8001
+    entrypoint: ["sh", "/usr/src/app/entrypoint.sh"]
+
+  postgres:
+    restart: always
+    image: postgres:latest
+    ports:
+      - "5432"
+    volumes:
+      - dirtepol_postgres:/var/lib/postgresql/data/
+    env_file: .env
+
+  redis:
+    restart: always
+    image: redis:latest
+    ports:
+      - "6379"
+    volumes:
+      - dirtepol_redis:/data
+
+volumes:
+  dirtepol_redis:
+  dirtepol_postgres:

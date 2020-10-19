@@ -1,0 +1,13 @@
+django-cors-headers==3.5.0
+Markdown==3.3.1
+django-filter==2.4.0
+djangorestframework==3.11.2
+drf-yasg==1.17.1
+packaging
+Django==3.1.2
+python-decouple==3.3
+gunicorn==20.0.4
+psycopg2==2.8.6
+djangorestframework-simplejwt==4.4.0
+django-mptt==0.11.0
+djangorestframework-recursive==0.1.2
